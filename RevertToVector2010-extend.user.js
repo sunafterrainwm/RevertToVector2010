@@ -85,12 +85,12 @@
 		if (
 			!mw
 			|| window.location.pathname === '/w/api.php'
-			|| !mw.user.isAnon()
+			|| mw.config.get('wgUserName') === null
 		) {
 			// Not MediaWiki / Api Document / Loginned
 			return;
 		}
-		if (!window.location.search.match(/[?&]useskin=]/)) {
+		if (!window.location.search.match(/[?&]useskin=/)) {
 			// Not Force Skin
 			const newSearchParams = new URLSearchParams(window.location.search);
 			newSearchParams.set('useskin', 'vector');

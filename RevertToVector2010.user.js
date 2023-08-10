@@ -45,7 +45,7 @@
             || window.location.pathname === '/w/api.php'
             || mw.config.get('skin') !== 'vector-2022'
             || window.location.search.match(/[?&]useskin=vector-2022(&|$)/)
-            || !mw.user.isAnon()
+            || mw.config.get('wgUserName') === null
         ) {
             // Not MediaWiki / Api Document / Force Skin / Loginned
             return;
