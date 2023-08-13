@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Revert To Vector 2010
-// @version      0.0.1
+// @version      0.0.1+2023081001
 // @author       sunafterrainwm
 // @description  Rewrite URLs to force legacy Vector skin when user is not logged in.
 // @description:zh  在用户未登入 WMF wikis 时重写网址以强制使用旧版 Vector 皮肤。
