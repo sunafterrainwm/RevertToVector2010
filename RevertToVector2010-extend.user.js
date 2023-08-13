@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Revert To Vector 2010 (Extend)
-// @version      0.0.1
+// @version      0.0.1+2023081301
 // @author       sunafterrainwm
 // @description  Rewrite URLs and links in the page to force legacy Vector skin when user is not logged into WMF wikis.
 // @description:zh  在用户未登入 WMF wikis 时重写网址及页面中的链接以强制使用旧版 Vector 皮肤。
@@ -43,7 +43,7 @@
      */
 	function rewriteLink(link) {
 		const url = new URL(link);
-		if (url.searchParams.has('useskin')) {
+		if (url.searchParams.has('useskin') || url.origin !== window.location.origin) {
 			return false;
 		}
 		url.searchParams.set('useskin', 'vector');
@@ -90,7 +90,7 @@
 			// Not MediaWiki / Api Document / Loginned
 			return;
 		}
-		if (!window.location.search.match(/[?&]useskin=/)) {
+		if (!window.location.search.match(/[?&]useskin=/) && mw.config.get('skin') === 'vector-2022') {
 			// Not Force Skin
 			const newSearchParams = new URLSearchParams(window.location.search);
 			newSearchParams.set('useskin', 'vector');
