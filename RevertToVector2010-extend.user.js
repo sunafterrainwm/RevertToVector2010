@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Revert To Vector 2010 (Extend)
-// @version      0.0.1+2023081301
+// @version      0.0.1+2023081401
 // @author       sunafterrainwm
 // @description  Rewrite URLs and links in the page to force legacy Vector skin when user is not logged into WMF wikis.
 // @description:zh  在用户未登入 WMF wikis 时重写网址及页面中的链接以强制使用旧版 Vector 皮肤。
@@ -85,7 +85,7 @@
 		if (
 			!mw
 			|| window.location.pathname === '/w/api.php'
-			|| mw.config.get('wgUserName') === null
+			|| mw.config.get('wgUserName') !== null
 		) {
 			// Not MediaWiki / Api Document / Loginned
 			return;
